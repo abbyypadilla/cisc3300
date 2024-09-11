@@ -1,0 +1,13 @@
+CISC 3300 F24 
+In class assignment 2 - Abby Padilla
+
+1. inline
+2. relative
+3. compression
+4. form
+5. style
+6. selectors, selectors
+7. box
+8. equally
+9. padding
+
