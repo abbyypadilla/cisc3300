@@ -1,0 +1,12 @@
+in-class-4
+Abby Padilla
+09.25.24
+
+1. interpreted
+2. dynamic
+3. functional
+4. const
+5. scope
+6. let
+7. callback
+8. object
