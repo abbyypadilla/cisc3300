@@ -15,19 +15,17 @@ Actual Homework 3
    of use, making these languages ideal for rapid prototyping and development. However, the 
    downside is that type-related errors may only become apparent during execution, making 
    debugging more difficult. Examples of dynamically typed languages include Python, JavaScript, 
-   and Ruby. In contrast, statically typed programming languages recognize different data types 
-   (numbers, strings, etc.), but do not use them too strictly, trying to convert data when it 
-   seems reasonable. Because they enforce type checking at compile-time, variables have to be 
-   declared with a specific type, which cannot change later. This early type checking helps catch 
-   errors during compilation, resulting in more robust and reliable code. However, it can be less 
-   flexible. Common statically typed languages include Java, C++, and Swift.
-   Strongly typed programming languages maintain strict rules about how different data types can 
-   interact, refusing to allow implicit type conversions that might lead to unintended behavior. 
-   This ensures safer code by reducing type-related errors. Python and Java are examples of 
-   strongly typed languages. In contrast, weakly typed languages are more permissive and allow 
-   implicit type conversions, which can introduce unexpected results. While this flexibility 
-   may make it easier to write quick scripts, it can lead to type coercion bugs and unexpected 
-   behavior. JavaScript and PHP are examples of weakly typed languages. 
+   and Ruby. In contrast, statically typed programming languages enforce type checking at 
+   compile-time, so the variable types are known before the program actually runs. This early type 
+   checking helps catch errors during compilation, resulting in more robust and reliable code, as 
+   many trivial bugs can be caught at a very early stage. Common statically typed languages include 
+   Java, C++, and Swift. Strongly typed programming languages maintain strict rules about how 
+   different data types can interact, refusing to allow implicit type conversions that might lead to 
+   unintended behavior. This ensures safer code by reducing type-related errors. Python and Java are 
+   examples of strongly typed languages. In contrast, weakly typed languages are more permissive and 
+   allow implicit type conversions, which can introduce unexpected results. While this flexibility may
+   make it easier to write quick scripts, it can lead to type coercion bugs and unexpected behavior. 
+   JavaScript and PHP are examples of weakly typed languages. 
 3. When declaring variables in JS, var, let, and const are all different keywords for this. Var 
    has a global and function scope, and is more old school, as it was formerly the only way of 
    declaring variables before let and const were introduced in ES6. It is redeclarable like let, 
