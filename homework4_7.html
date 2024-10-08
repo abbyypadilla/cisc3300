@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Question 7</title>
+</head>
+<body>
+    <h1>Cat Name List</h1>
+    <ul id="cats-list"></ul>
+
+    <script>
+        const cats = 
+        [
+            { name: 'Charlie', adoptionStatus: 'available' },
+            { name: 'Lily', adoptionStatus: 'not-available' },
+            { name: 'Coco', adoptionStatus: 'available' },
+            { name: 'Oreo', adoptionStatus: 'not-available' },
+            { name: 'Luna', adoptionStatus: 'available' },
+            { name: 'Milo', adoptionStatus: 'available' },
+            { name: 'Lola', adoptionStatus: 'not-available' },
+            { name: 'Leo', adoptionStatus: 'available' },
+            { name: 'Willow', adoptionStatus: 'available' },
+            { name: 'Bella', adoptionStatus: 'not-available' },
+            { name: 'Max', adoptionStatus: 'available' },
+            { name: 'Cleo', adoptionStatus: 'available' },
+            { name: 'Lucy', adoptionStatus: 'not-available' },
+            { name: 'Daisy', adoptionStatus: 'available' }
+        ];
+
+        const catsList = document.getElementById('cats-list');
+
+        cats.forEach(cat => 
+        {
+            const listItem = document.createElement('li');
+            listItem.textContent = cat.name;
+            catsList.appendChild(listItem);
+        });
+
+    </script>
+</body>
+</html>
