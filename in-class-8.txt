@@ -1,0 +1,13 @@
+In-class-8
+Abby Padilla
+10.23.24
+
+1. templates
+2. visibility
+3. inheritance 
+4. namespaces
+5. superglobals
+6. functions
+7. header()
+8. MVC
+9. libraries
