@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Question 8</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="input">Enter Text: </label>
+        <input type="text" id="input" />
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', event => 
+        {
+            event.preventDefault();
+            const input = document.getElementById('input');
+            console.log(input.value);
+        });
+    </script>
+</body>
+</html>
