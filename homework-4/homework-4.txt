@@ -1,0 +1,35 @@
+Homework 4
+Abby Padilla
+10.07.24
+
+1. DOM - Document Object Model - brower's live rendering/representation of the HTML page and API, 
+   specifying how browsers should create a model of an HTML page and how JavaScript can access and 
+   update the contents of a web page while it is in the browser window. As it is an API - Application 
+   Programming Interface - the user interfaces let humans interact with programs, allowing the programs 
+   and scripts to talk to each other. It is accessible to view in our browser's development tools.  
+   DOM tree - the model created as a browser loads a web page. It is stored in the browser's memory, and 
+   consists four main types of nodes. These nodes include the document node (the page), element nodes 
+   (individual elements), attribute nodes (attributes), and text nodes (text). When working with it, one 
+   must locate the note that represents the node desired to work with and access its text content, child 
+   elements, and attributes, or add news ones. 
+2. XSS attack - Cross-Site Scripting Attack - type of cyberattack, which works by an attacker adding 
+   code to an input that is eventually generated as HTML, in hopes that it would be run for different 
+   users, as it would actually give the attacker access to your users' accounts. In order to guard 
+   against them, one must be very careful with what content is treated as HTML, very rarely have the 
+   option to show input that came from a user at all, and in cases which that is necessary, there must 
+   be are options to validate that input, strip it of potential malicious intent by removing tags, 
+   escaping characters, etc.
+3. Event (JS) - "things" that happen to elements, created by interactions and are fired by the browser/
+   HTML, triggering code that can be reacted to. There are different event types, including UI (load/
+   unload/etc), keyboard (keydown, keyup, etc), mouse (click, mouseover, etc), focus (focus), form
+   (submit), and mutation.
+4. A DOM event listener is a more recent approach to handling events, capable of dealing with more than 
+   one function at a time. It works by setting up a function that will be called whenever the specified
+   event is delivered to the target, listening for the event by name.
+5. jQuery - lightweight, "write less, do more", JavaScript library, with the purpose of making it much 
+   easier to use JS on a website. It would be used as it is a JS library designed to simplify HTML, DOM
+   manipulation, event handling, CSS animations, and Ajax. It shortened the syntax and simplified the 
+   code, making to easy to understand and increased web developer productivity. It ultimately makes life
+   easier when doing common HTML/CSS/JS tasks. It is loaded onto a page by taking many common tasks 
+   requiring many lines of JS code to accomplish, and wraps them into methods that can be called with a 
+   single line of code. 
