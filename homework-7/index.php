@@ -7,7 +7,7 @@ $controller = new UserController();
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
 
-if ($requestMethod === 'GET' && $requestUri === '/views/users') 
+if ($requestMethod === 'GET' && strpos($requestUri, 'action=json') == true) 
 {
     $controller->serveJsonData();
 } else 
@@ -15,20 +15,3 @@ if ($requestMethod === 'GET' && $requestUri === '/views/users')
     $controller->serveHtmlPage();
 }
 ?>
-
-<!-- // originally for part a
-// $action = $_GET['action'] ?? 'html';
-
-// switch ($action) 
-// {
-//     case 'html':
-//         $controller->serveHtmlPage();
-//         break;
-//     case 'json':
-//         $controller->serveJsonData();
-//         break;
-//     default:
-//         http_response_code(404);
-//         echo 'Page not found';
-//         break;
-// } -->
