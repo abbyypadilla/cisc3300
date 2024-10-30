@@ -1,0 +1,92 @@
+<!-- part c -->
+
+<!DOCTYPE html>
+<head>
+    <title>User List</title>
+    <style>
+        body 
+        {
+            font-family: 'Merriwether', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 
+        {
+            color: #333;
+        }
+        ul 
+        {
+            list-style-type: none;
+            padding: 0;
+        }
+        li 
+        {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .error 
+        {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>User List</h1>
+    <div id="user-list"></div>
+    <p class="error" id="error-message"></p>
+
+    <script>
+        function fetchUsers() 
+        {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://localhost:8888/index.php?action=json', true);
+
+            xhr.onload = function() 
+            {
+                if (xhr.status === 200)
+                {
+                    const users = JSON.parse(xhr.responseText);
+                    displayUsers(users);
+                } else 
+                {
+                    document.getElementById('error-message').innerText = 'Failed to load user data.';
+                }
+            };
+
+            xhr.onerror = function() 
+            {
+                document.getElementById('error-message').innerText = 'Request error.';
+            };
+
+            xhr.send();
+        }
+
+        function displayUsers(users) 
+        {
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = ''; 
+
+            if (users.length === 0) 
+            {
+                userList.innerHTML = '<p>No users found.</p>';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+            users.forEach(user => 
+            {
+                const li = document.createElement('li');
+                li.innerText = `${user.name} - ${user.email}`;
+                ul.appendChild(li);
+            });
+            userList.appendChild(ul);
+        }
+
+        window.onload = fetchUsers;
+    </script>
+</body>
+</html>
