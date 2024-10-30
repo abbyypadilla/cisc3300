@@ -15,15 +15,14 @@ class UserController
 
     public function serveHtmlPage() 
     {
-        $filePath = __DIR__ . '/../views/users.html';
-    
-        if (file_exists($filePath)) 
+        if (file_exists('views/users.html')) 
         {
-            return file_get_contents($filePath);
-        } else 
+            require 'views/users.html';  
+        } 
+        else 
         {
             http_response_code(404);
-            return '404 Not Found';
+            echo '404 Not Found';
         }
 
         // originally for part a
