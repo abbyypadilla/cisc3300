@@ -15,16 +15,16 @@ class UserController
 
     public function serveHtmlPage() 
     {
-        echo "<h1>User List</h1>";
-        echo "<ul>";
-        
-        // Fetch users and display them in a list
-        $users = $this->userModel->getAllUsers();
-        foreach ($users as $user) {
-            echo "<li>{$user['name']} - {$user['email']} - {$user['role']}</li>";
+        $filePath = __DIR__ . '/../views/users.html';
+    
+        if (file_exists($filePath)) 
+        {
+            return file_get_contents($filePath);
+        } else 
+        {
+            http_response_code(404);
+            return '404 Not Found';
         }
-        
-        echo "</ul>";
 
         // originally for part a
         // echo "<!DOCTYPE html>
@@ -59,5 +59,4 @@ class UserController
         $data = $this->userModel->getAllUsers();
         echo json_encode($data);
     }
-    
 }
