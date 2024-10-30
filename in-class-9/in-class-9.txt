@@ -1,0 +1,17 @@
+in-class-9
+Abby Padilla
+10.30.24
+
+1. URL
+2. $_GET
+3. $_POST
+4. not appear
+5. html syntax
+6. accuracy
+7. cookie
+8. sessions
+9. exceptions - when code that would normally run is prevented from 
+   completing due to an unexpected event or error, such as invalid 
+   input, file not found, or division by zero. interrupt the normal 
+   flow of a program and are typically handled to prevent the program 
+   from crashing.
