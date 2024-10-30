@@ -1,0 +1,48 @@
+Homework 7
+Abby Padilla
+10.25.24
+
+1. Class - required templates for creating objects, setting up those objects with  
+   properties, and defining properties and methods
+   Object - instance of a class, with its variables referencing to the dynamic data,
+   consisting of the data set up with the class
+   OOP - Object Oriented Programming - programming paradigm organizing software design 
+   around objects and classes, emphasizing concepts like encapsulation, inheritance, 
+   polymorphism, and abstraction. These programs consist of objects that interact with 
+   each other, each containing data and code.
+2. An abstract class should be used in OOP because it allows the parent to create 
+   defaults for methods, as it is a class that is not meant to be instantiate, but
+   extended by children classes. Generally, they are used when a class provides some
+   high level functionality, but leaves out certain details to be implemented by
+   derived classes. A simple way of thinking their functionality is to look at them
+   as a template for templates. 
+3. Superglobals (PHP) - several predefined variables available in all scopes throughout
+   a script, not needing to do global $variable in order to access them within functions
+   or methods. 
+   Some examples of data they provide are:
+   $_SERVER: Provides server and request info like - `REQUEST_METHOD`, REQUEST_URI, and 
+   host info.
+   $_POST` and $_GET`: Hold data sent via HTTP POST or GET requests.
+   $_SESSION`: Stores session data, allowing information persistence across pages.
+   $_COOKIE`: Accesses cookie data.
+4. The two steps to setting up and using a class via namespaces are:
+      1. Define the namespace within the class file.
+      2. Type out the full namespace path (`new app\models\Post();`) or import it using 
+         `use app\models\Post;` for simpler calls, in the desired script where to use 
+         the class
+5. MVC - architectural/design pattern that separates an application into three main logical 
+   components, those being Model, View, and Controller. Each architectural component is built 
+   to handle specific development aspects of an application. It isolates the business logic 
+   and presentation layer from each other.
+   Model: corresponds to all the data-related logic that the user works with. can represent 
+   either the data that is being transferred between the View and Controller components or any 
+   other business logic-related data. can add or retrieve data from the database. responds to 
+   the controller’s request because the controller can’t interact with the database by itself. 
+   the model interacts with the database and gives the required data back to the controller.
+   View: used for all the UI logic of the application and generates a user interface for the 
+   user. created by the data which is collected by the model component but these data aren’t 
+   taken directly but through the controller. only interacts with the controller.
+   Controller: enables interconnection between the views and the model so it acts as an 
+   intermediary. doesn’t have to worry about handling data logic, it just tells the model what 
+   to do. processes all the business logic and incoming requests, manipulates data using the 
+   Model component, and interact with the View to render the final output.
