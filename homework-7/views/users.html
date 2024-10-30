@@ -11,7 +11,7 @@
             margin: 0;
             padding: 20px;
         }
-        h1 
+        h1
         {
             color: #333;
         }
@@ -40,35 +40,29 @@
     <p class="error" id="error-message"></p>
 
     <script>
-        function fetchUsers() 
+        async function fetchUsers() 
         {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:8888/index.php?action=json', true);
-
-            xhr.onload = function() 
+            try 
             {
-                if (xhr.status === 200)
+                const response = await fetch('http://localhost:8888/index.php?action=json');
+                
+                if (!response.ok) 
                 {
-                    const users = JSON.parse(xhr.responseText);
-                    displayUsers(users);
-                } else 
-                {
-                    document.getElementById('error-message').innerText = 'Failed to load user data.';
+                    throw new Error('Failed to load user data.');
                 }
-            };
-
-            xhr.onerror = function() 
+                
+                const users = await response.json();
+                displayUsers(users);
+            } catch (error) 
             {
-                document.getElementById('error-message').innerText = 'Request error.';
-            };
-
-            xhr.send();
+                document.getElementById('error-message').innerText = error.message;
+            }
         }
 
         function displayUsers(users) 
         {
             const userList = document.getElementById('user-list');
-            userList.innerHTML = ''; 
+            userList.innerHTML = '';
 
             if (users.length === 0) 
             {
@@ -80,7 +74,7 @@
             users.forEach(user => 
             {
                 const li = document.createElement('li');
-                li.innerText = `${user.name} - ${user.email}`;
+                li.innerText = `${user.name} - ${user.email} - ${user.role}`;
                 ul.appendChild(li);
             });
             userList.appendChild(ul);
