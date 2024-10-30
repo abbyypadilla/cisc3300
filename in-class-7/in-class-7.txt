@@ -1,0 +1,12 @@
+In-class-7
+Abby Padilla
+10.16.24
+
+1. .htaccess
+2. <?php>
+3. $
+4. non primative data types
+5. associative arrays
+6. double quotes
+7. include
+8. data type
