@@ -1,0 +1,33 @@
+Homework 8
+Abby Padilla
+11.06.24
+
+1. www.example.com?param1=value1&param2=value2
+2. Escaping a character - removing and replacing any characters that should not appear in 
+   a value, exemplified by characters that would try to behave like code when unwanted to,
+   and in turn stops the browser html interpreter from treating it like html.
+3. 200 OK: The request was successful, and the server returned the requested resource.
+   400 Bad Request: The server couldn't understand the request due to invalid syntax.
+   401 Unauthorized: Authentication is required to access the resource.
+   403 Forbidden: The server understood the request but refuses to authorize it.
+   404 Not Found: The server couldn't find the requested resource.
+   500 Internal Server Error: The server encountered an unexpected issue that prevented 
+   it from fulfilling the request.
+4. Data validation is needed as it checks for the validity of data by using a set of 
+   rules. It prevents any faults, by for example, ensuring right data types and optionally
+   not empty. To put into perspective, it can prevent users we wouldn’t want to save a 
+   user with no name, or a number to be of string type. Regular expressions can also be used. 
+5. Sessions - store information about a user and their preferences on the server, and only 
+   store the data for the duration of a single visit to the site. Similarly to cookies, they 
+   are text files. They live in the tmp directory which is in the apache files in MAMP.
+   Sessions are typically used for secure, temporary data storage. They are ideal for 
+   storing sensitive or large data that should not be stored in the client’s browser.
+   Cookies - have the ability to access our session on each new request which is where we will 
+   determine if they are still authenticated, we could revoke the ability to request new data 
+   from the backend if needed.
+   Cookies are primarily used for storing user preferences, tracking user behavior, and 
+   maintaining user sessions across visits.
+6. try:
+       result = x / 0
+   except ZeroDivisionError:
+       print("An error occurred: Division by zero is not allowed.")
