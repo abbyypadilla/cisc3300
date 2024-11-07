@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<head>
+    <title>Posts Management</title>
+    <style>
+        body 
+        {
+            font-family: Merriwether, serif;
+        }
+        #searchSection, #addPostSection 
+        {
+            margin-bottom: 20px;
+        }
+        .post 
+        {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .error 
+        {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="searchSection">
+        <h1>Search Posts</h1>
+        <input type="text" id="searchTitle" placeholder="Search by title..." oninput="PostController.searchPosts()">
+        <div id="postsContainer"></div>
+    </div>
+
+    <hr>
+
+    <div id="addPostSection">
+        <h1>Add New Post</h1>
+        <form id="postForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            <br>
+            <label for="content">Content:</label>
+            <textarea id="content" required></textarea>
+            <br>
+            <button type="submit">Add Post</button>
+            <div id="errorContainer" class="error"></div>
+        </form>
+    </div>
+
+    <script>
+        class Post 
+        {
+            constructor(title, content) 
+            {
+                this.title = title;
+                this.content = content;
+            }
+
+            static validate(post) 
+            {
+                let errors = [];
+                if (!post.title || post.title.length < 3) {
+                    errors.push("Title must be at least 3 characters long.");
+                }
+                if (!post.content || post.content.length < 10) {
+                    errors.push("Content must be at least 10 characters long.");
+                }
+                return errors;
+            }
+        }
+
+        class PostController 
+        {
+            static getPosts() 
+            {
+                return JSON.parse(localStorage.getItem('posts')) || [];
+            }
+
+            static savePosts(posts) 
+            {
+                localStorage.setItem('posts', JSON.stringify(posts));
+            }
+
+            static renderPosts(posts) 
+            {
+                const postsContainer = document.getElementById('postsContainer');
+                postsContainer.innerHTML = '';  
+                posts.forEach((post, index) => {
+                    const postDiv = document.createElement('div');
+                    postDiv.classList.add('post');
+                    postDiv.innerHTML = `
+                        <h3>${post.title}</h3>
+                        <p>${post.content}</p>
+                        <button onclick="PostController.editPost(${index})">Edit</button>
+                        <button onclick="PostController.deletePost(${index})">Delete</button>
+                        <hr>
+                    `;
+                    postsContainer.appendChild(postDiv);
+                });
+            }
+
+            static addPost(event) 
+            {
+                event.preventDefault();
+                const title = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+                const post = new Post(title, content);
+                const errors = Post.validate(post);
+
+                if (errors.length > 0) 
+                {
+                    document.getElementById('errorContainer').innerHTML = errors.join('<br>');
+                } else 
+                {
+                    const posts = PostController.getPosts();
+                    posts.push(post);
+                    PostController.savePosts(posts);
+                    PostController.renderPosts(posts);
+                    event.target.reset(); 
+                    document.getElementById('errorContainer').innerHTML = ''; 
+                }
+            }
+
+            static editPost(index) 
+            {
+                const posts = PostController.getPosts();
+                const post = posts[index];
+                const newTitle = prompt('Edit Title:', post.title);
+                const newContent = prompt('Edit Content:', post.content);
+
+                if (newTitle !== null && newContent !== null) 
+                {
+                    posts[index] = new Post(newTitle, newContent);
+                    PostController.savePosts(posts);
+                    PostController.renderPosts(posts);
+                }
+            }
+
+            static deletePost(index) 
+            {
+                const posts = PostController.getPosts();
+                posts.splice(index, 1);
+                PostController.savePosts(posts);
+                PostController.renderPosts(posts);
+            }
+
+            static searchPosts() 
+            {
+                const searchTitle = document.getElementById('searchTitle').value.toLowerCase();
+                const posts = PostController.getPosts();
+                const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(searchTitle));
+                PostController.renderPosts(filteredPosts);
+            }
+        }
+
+        PostController.renderPosts(PostController.getPosts());
+
+        document.getElementById('postForm').addEventListener('submit', PostController.addPost);
+    </script>
+</body>
+</html>
