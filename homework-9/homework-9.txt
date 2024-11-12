@@ -1,0 +1,42 @@
+Homework 9
+11.13.24
+Abby Padilla
+
+1. SQL - standard language for database creation and manipulation. 
+   MySQL - relational database program (one of many) that uses SQL queries. 
+   Relational databases - uses a structure that allows us to identify and access data in
+   relation to another piece of data in the database, these are called relationships.
+2. Normalization (SQL) - organizes the columns and tables of a database, ensuring that 
+   database integrity constraints properly execute their dependencies. Avoids duplication
+   by using relationships, enabling the data to be able to scale and be normalized.
+3. Keys, in a general sense, are attributes or columns in a relational database that we 
+   can use to uniquely identify records in a table. When applying this to primary and 
+   foreign keys: 
+   Primary keys - field(s) used to uniquely identify each record in a table, having three 
+   requirements. Those being:
+   1. cannot be null
+   2. must be unique
+   3. only one defined per table.
+   can be defined by creating a primary key index after the table is created.
+   Foreign keys - field (or fields) in one table that references the primary key in
+   another table. Data in the fields from both tables is exactly the same, and the table 
+   with the primary key record (the primary table) must have existing records before the 
+   table with the foreign key record (the foreign table) has the matching or related records. 
+4. The three relationship types: 
+   1. One-to-one 
+      For every record in the primary table, there is one and only one record in the foreign 
+      table, having least one foreign key set on either table.
+      ex: one faculty member has one single address
+   2. One-to-many 
+      For every record in the primary table, there are one or more related records in the 
+      foreign table, having foreign keys on each of the foreign tables.
+      ex: one faculty member can have many courses assigned to them
+   3. Many-to-many 
+      For every record in the primary table, there are many related records in the foreign 
+      table, and for every record in the foreign table, there are many related records in 
+      the primary table. A join table is made of use - table that has both primary keys for
+      the primary and foreign tables.
+      ex: many students can be enrolled in many classes
+5. A LEFT JOIN keyword returns all records from the left table (table1), and the matching 
+   records from the right table, while the INNER JOIN keyword only selects records that have 
+   matching values in both tables. 
