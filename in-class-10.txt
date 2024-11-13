@@ -1,0 +1,14 @@
+In Class 10
+Abby Padilla
+11.13.24
+
+1. PDOs - php data object
+2. DSN - data source name
+3. .env
+4. ignore
+5. statement
+6. fetch
+7. fetchAll
+8. prepared statement
+9. :
+10. SQL injection
